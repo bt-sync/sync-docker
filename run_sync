@@ -1,0 +1,4 @@
+#! /bin/bash
+
+mkdir -p /mnt/sync/data
+exec /usr/sbin/btsync --nodaemon $*
