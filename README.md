@@ -8,7 +8,7 @@ Sync uses peer-to-peer technology to provide fast, private file sharing for team
     DATA_FOLDER=/path/to/data/folder/on/the/host
     WEBUI_PORT=[ port to access the webui on the host ]
 
-    mkdir $DATA_FOLDER
+    mkdir -p $DATA_FOLDER
 
     docker run -d --name Sync \
       -p 127.0.0.1:$WEBUI_PORT:8888 -p 55555 \
