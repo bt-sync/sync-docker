@@ -1,4 +1,6 @@
 #! /bin/bash
 
-mkdir -p /mnt/sync/data
+mkdir -p /mnt/sync/folders
+mkdir -p /mnt/sync/config
+
 exec /usr/sbin/btsync --nodaemon $*

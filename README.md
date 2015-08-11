@@ -26,6 +26,18 @@ NB: If you do not want to limit the access to the webui to localhost, run instea
       --restart on-failure \
       bittorrent/sync
 
+NB: If you need to mount extra directories, mount them in /mnt/mounted_folders
+
+    docker run -d --name Sync \
+      -p 127.0.0.1:$WEBUI_PORT:8888 -p 55555 \
+      -v $DATA_FOLDER:/mnt/sync \
+      -v <OTHER_DIR>:/mnt/mounted_folders/<DIR_NAME> \
+      -v <OTHER_DIR2>:/mnt/mounted_folders/<DIR_NAME2> \
+      --restart on-failure \
+      bittorrent/sync
+
+Do not create extra directories in mounted_folders from the Sync webui: you might lose data since this new folder will not be mounted on the host.
+
 # Volume
 
 * /mnt/sync - State files and Sync folders
