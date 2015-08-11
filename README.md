@@ -18,6 +18,14 @@ Sync uses peer-to-peer technology to provide fast, private file sharing for team
 
 Go to localhost:$WEBUI_PORT in a web browser to access the webui.
 
+NB: If you do not want to limit the access to the webui to localhost, run instead:
+
+    docker run -d --name Sync \
+      -p $WEBUI_PORT:8888 -p 55555 \
+      -v $DATA_FOLDER:/mnt/sync \
+      --restart on-failure \
+      bittorrent/sync
+
 # Volume
 
 * /mnt/sync - State files and Sync folders
