@@ -18,7 +18,9 @@ Sync uses peer-to-peer technology to provide fast, private file sharing for team
 
 Go to localhost:$WEBUI_PORT in a web browser to access the webui.
 
-NB: If you do not want to limit the access to the webui to localhost, run instead:
+#### LAN access
+
+If you do not want to limit the access to the webui to localhost, run instead:
 
     docker run -d --name Sync \
       -p $WEBUI_PORT:8888 -p 55555 \
@@ -26,7 +28,9 @@ NB: If you do not want to limit the access to the webui to localhost, run instea
       --restart on-failure \
       bittorrent/sync
 
-NB: If you need to mount extra directories, mount them in /mnt/mounted_folders
+#### Extra directories
+
+If you need to mount extra directories, mount them in /mnt/mounted_folders:
 
     docker run -d --name Sync \
       -p 127.0.0.1:$WEBUI_PORT:8888 -p 55555 \
@@ -36,7 +40,7 @@ NB: If you need to mount extra directories, mount them in /mnt/mounted_folders
       --restart on-failure \
       bittorrent/sync
 
-Do not create extra directories in mounted_folders from the Sync webui: you might lose data since this new folder will not be mounted on the host.
+Do not create directories in mounted_folders from the Sync webui: you might lose data since this new folder will not be mounted on the host.
 
 # Volume
 
