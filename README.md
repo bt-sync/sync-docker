@@ -40,7 +40,7 @@ If you need to mount extra directories, mount them in /mnt/mounted_folders:
       --restart on-failure \
       bittorrent/sync
 
-Do not create directories in mounted_folders from the Sync webui: you might lose data since this new folder will not be mounted on the host.
+Do not create directories at the root of mounted_folders from the Sync webui since this new folder will not be mounted on the host.
 
 # Volume
 
