@@ -4,9 +4,9 @@
 
 FROM ubuntu:15.04
 MAINTAINER Bertrand Chazot <bertrand@bittorrent.com>
-LABEL com.getsync.version="2.2.5"
+LABEL com.getsync.version="2.2.7"
 
-ADD https://download-cdn.getsync.com/2.2.5/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
+ADD https://download-cdn.getsync.com/2.2.7/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/sbin btsync && rm -f /tmp/sync.tgz
 
 COPY btsync.conf /etc/
