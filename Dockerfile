@@ -1,15 +1,15 @@
-# BitTorrent Sync
+# Resilio Sync
 #
 # VERSION               0.1
 
 FROM ubuntu:15.04
-MAINTAINER Bertrand Chazot <bertrand@bittorrent.com>
-LABEL com.getsync.version="2.3.3"
+MAINTAINER Resilio Inc. <support@resilio.com>
+LABEL com.resilio.version="2.4.0"
 
-ADD https://download-cdn.getsync.com/2.3.3/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
-RUN tar -xf /tmp/sync.tgz -C /usr/sbin btsync && rm -f /tmp/sync.tgz
+ADD https://download-cdn.resilio.com/stable/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
+RUN tar -xf /tmp/sync.tgz -C /usr/sbin rslsync && rm -f /tmp/sync.tgz
 
-COPY btsync.conf /etc/
+COPY sync.conf /etc/
 COPY run_sync /opt/
 
 EXPOSE 8888
