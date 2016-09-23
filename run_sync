@@ -3,4 +3,4 @@
 mkdir -p /mnt/sync/folders
 mkdir -p /mnt/sync/config
 
-exec /usr/sbin/rslsync --nodaemon $*
+exec /usr/bin/rslsync --nodaemon $*
