@@ -1,6 +1,7 @@
 # Resilio Sync
 #
 # VERSION               0.1
+#
 
 FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
