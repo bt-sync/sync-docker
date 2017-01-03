@@ -4,7 +4,7 @@ mkdir -p /mnt/sync/folders
 mkdir -p /mnt/sync/config
 
 if [ -f /mnt/sync/sync.conf ]; then
-    rm -f /etc/sync.conf;
+    mv /etc/sync.conf /etc/sync.conf.default;
 else
     mv /etc/sync.conf /mnt/sync/sync.conf;
 fi
