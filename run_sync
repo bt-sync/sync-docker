@@ -3,4 +3,8 @@
 mkdir -p /mnt/sync/folders
 mkdir -p /mnt/sync/config
 
+if ! [ -f /mnt/sync/sync.conf ]; then
+    cp /etc/sync.conf.default /mnt/sync/sync.conf;
+fi
+
 exec /usr/bin/rslsync --nodaemon $*
