@@ -50,3 +50,8 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 
 * 8888 - Webui
 * 55555 - Listening port for Sync traffic
+
+# Help
+
+Additional info can be found at [help center](https://help.getsync.com).
+If you have any questions left, please contact us via [support page](https://help.getsync.com/hc/en-us/requests/new?ticket_form_id=91563).
