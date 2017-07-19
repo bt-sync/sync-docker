@@ -7,4 +7,18 @@ if ! [ -f /mnt/sync/sync.conf ]; then
     cp /etc/sync.conf.default /mnt/sync/sync.conf;
 fi
 
-exec /usr/bin/rslsync --nodaemon $*
+USER_ID=${UID:-1001}
+GROUP_ID=${GID:-1001}
+
+echo "Starting with User $USER_ID:$GROUP_ID"
+usermod -G "" resilio
+deluser resilio
+groupdel resilio
+groupadd -g $GROUP_ID resilio
+useradd --shell /bin/bash -u $USER_ID -o -c "" -m resilio -g $GROUP_ID
+export HOME=/home/resilio
+
+chown -R $USER_ID:$GROUP_ID /mnt
+chmod -R 770 /mnt
+
+exec /bin/su - resilio -c "/usr/bin/rslsync --nodaemon $*"
