@@ -5,9 +5,9 @@
 
 FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="2.5.11"
+LABEL com.resilio.version="2.5.12"
 
-ADD https://download-cdn.resilio.com/2.5.11/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
+ADD https://download-cdn.resilio.com/2.5.12/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf.default /etc/
