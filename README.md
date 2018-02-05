@@ -16,7 +16,9 @@ Sync uses peer-to-peer technology to provide fast, private file sharing for team
       --restart on-failure \
       resilio/sync
 
-Go to localhost:$WEBUI_PORT in a web browser to access the webui.
+Go to `localhost:$WEBUI_PORT` in a web browser to access the webui.
+
+##### Important: if you need to run Sync under specific user inside your container - use `--user` parameter. [Docs](https://docs.docker.com/engine/reference/run/#user).
 
 #### LAN access
 
@@ -44,12 +46,12 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 
 # Volume
 
-* /mnt/sync - State files and Sync folders
+* `/mnt/sync` - State files and Sync folders
 
 # Ports
 
-* 8888 - Webui
-* 55555 - Listening port for Sync traffic
+* `8888` - Webui
+* `55555` - Listening port for Sync traffic
 
 # Help
 
