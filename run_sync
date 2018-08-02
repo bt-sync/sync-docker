@@ -7,4 +7,4 @@ if ! [ -f /mnt/sync/sync.conf ]; then
     cp /etc/sync.conf.default /mnt/sync/sync.conf;
 fi
 
-HOME=/mnt/sync exec /usr/bin/rslsync --nodaemon $*
+HOME=/mnt/sync/folders exec /usr/bin/rslsync --nodaemon $*
