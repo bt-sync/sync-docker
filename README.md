@@ -22,7 +22,16 @@ Be sure to always run docker container with `--restart` parameter to allow Docke
 
 Go to `http://localhost:$WEBUI_PORT` in a web browser to access the webui.
 
-Important: if you need to run Sync under specific user inside your container - use `--user` parameter. [Docs](https://docs.docker.com/engine/reference/run/#user).
+If you need to run Sync under specific user inside your container - use `--user` [parameter](https://docs.docker.com/engine/reference/run/#user).
+
+### Volume
+
+* `/mnt/sync` - folder inside the container that contains the [storage folder](https://help.resilio.com/hc/en-us/articles/206664690-Sync-Storage-folder), [configuration file](https://help.resilio.com/hc/en-us/articles/206178884) and default download folder
+
+### Ports
+
+* `8888` - Webui port
+* `55555` - Listening port for Sync traffic (you can change it, but in this case change it in Sync [settings](https://help.resilio.com/hc/en-us/articles/204762669-Sync-Preferences) as well)
 
 #### LAN access
 
@@ -54,16 +63,7 @@ docker run -d --name Sync \
 
 Do not create directories at the root of `/mnt/mounted_folders` from the Sync webui since they will not be mounted on the host.
 
-### Volume
-
-* `/mnt/sync` - folder inside the conrainer that contains the [storage folder](https://help.resilio.com/hc/en-us/articles/206664690-Sync-Storage-folder), [configuration file](https://help.resilio.com/hc/en-us/articles/206178884) and default download folder
-
-### Ports
-
-* `8888` - Webui port
-* `55555` - Listening port for Sync traffic (you can change it, but in this case change it in Sync [settings](https://help.resilio.com/hc/en-us/articles/204762669-Sync-Preferences) as well)
-
 ### Help
 
 - Additional info can be found at [help center](https://help.resilio.com)
-- If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563)
+- If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563) or visit our forum at [https://forum.resilio.com](https://forum.resilio.com)
