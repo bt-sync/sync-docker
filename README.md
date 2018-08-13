@@ -1,14 +1,12 @@
 ## Resilio Sync
 
-===============
-
 Sync uses peer-to-peer technology to provide fast, private file sharing for teams and individuals. By skipping the cloud, transfers can be significantly faster because files take the shortest path between devices. Sync does not store your information on servers in the cloud, avoiding cloud privacy concerns.
 
 ### Usage
 
 ```
 DATA_FOLDER=/path/to/data/folder/on/the/host
-WEBUI_PORT=[ port to access the webui on the host ]
+WEBUI_PORT=<port to access the webui on the host>
 
 mkdir -p $DATA_FOLDER
 
@@ -41,7 +39,7 @@ docker run -d --name Sync \
 
 #### Extra directories
 
-If you need to mount extra directories, mount them in `/mnt/mounted_folders`::
+If you need to mount extra directories, mount them in `/mnt/mounted_folders`:
 
 ```
 docker run -d --name Sync \
@@ -67,5 +65,5 @@ Do not create directories at the root of `/mnt/mounted_folders` from the Sync we
 
 ### Help
 
-- Additional info can be found at [help center](https://help.resilio.com).
-- If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563).
+- Additional info can be found at [help center](https://help.resilio.com)
+- If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563)
