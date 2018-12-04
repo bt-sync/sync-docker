@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  sync_storage:
+    external: true
+
+services:
+  resilio_sync:
+    image: resilio/sync
+    restart: always
+    ports:
+     - 127.0.0.1:9999:8888
+     - 55555:55555
+    volumes:
+     - sync_storage:/mnt/sync/storage     # Sync storage folder
+     - ./sync.conf:/mnt/sync/sync.conf    # Configuration file
+     - $SYNC_DATA:/mnt/sync/data          # folder with data to be shared
