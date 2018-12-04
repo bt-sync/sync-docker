@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+ACTION=$1 # up, down
+export SYNC_DATA=$2  # path to dir to be whitelisted in sync.conf::webui::dir_whitelist
+
+if [ "$ACTION" = "up" ]
+then
+    docker volume create sync_config || true
+    docker-compose up -d
+elif [ "$ACTION" = "down" ]
+then
+    docker-compose down
+else
+    echo "Invalid action. Must be up or down"
+fi

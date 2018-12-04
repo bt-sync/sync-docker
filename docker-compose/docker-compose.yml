@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  sync_config:
+    external: true
+
+services:
+  status_monitor:
+    image: resilio/sync
+    restart: always
+    ports:
+     - 127.0.0.1:9999:8888
+     - 55555:55555
+    volumes:
+     - sync_config:/mnt/sync/config
+     - ./sync.conf:/mnt/sync/sync.conf
+     - $SYNC_DATA:/mnt/sync/data
