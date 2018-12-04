@@ -22,7 +22,7 @@ where `path_to_data` is path to folder to be mounted in container as well as to 
 bash deploy.sh up /home/user/data
 ```
 
-- Stop Sync w/o removing its storage volume (`sync_config`):
+- Stop Sync w/o removing its storage volume (`sync_storage`):
 ```
 bash deploy.sh down
 ```

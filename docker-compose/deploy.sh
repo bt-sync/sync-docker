@@ -5,7 +5,7 @@ export SYNC_DATA=$2  # path to dir to be whitelisted in sync.conf::webui::dir_wh
 
 if [ "$ACTION" = "up" ]
 then
-    docker volume create sync_config || true
+    docker volume create sync_storage || true
     docker-compose up -d
 elif [ "$ACTION" = "down" ]
 then
