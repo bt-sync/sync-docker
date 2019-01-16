@@ -24,7 +24,7 @@ Be sure to always run docker container with `--restart` parameter to allow Docke
 
 Go to `http://localhost:$WEBUI_PORT` in a web browser to access the webui.
 
-If you need to run Sync under specific user inside your container - use `--user` [parameter](https://docs.docker.com/engine/reference/run/#user).
+If you need to run Sync under specific user inside your container - use `--user` [parameter](https://docs.docker.com/engine/reference/run/#user) or [set](https://www.linuxserver.io/docs/puid-pgid/) `PUID` and `PGID` env vars for container.
 
 Running Sync in docker container via docker-compose is described [here](https://github.com/bt-sync/sync-docker/tree/master/docker-compose).
 
