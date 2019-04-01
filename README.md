@@ -20,6 +20,11 @@ docker run -d --name Sync \
            resilio/sync
 ```
 
+Note: you can use our official Docker image `resilio/sync` hosted on hub.docker.com or build image locally:
+```
+docker build -t resilio/sync .
+```
+
 Be sure to always run docker container with `--restart` parameter to allow Docker daemon to handle Sync container (launch at startup as well as restart it in case of failure).
 
 Go to `http://localhost:$WEBUI_PORT` in a web browser to access the webui.
@@ -65,7 +70,7 @@ docker run -d --name Sync \
            resilio/sync
 ```
 
-Do not create directories at the root of `/mnt/mounted_folders` from the Sync webui since they will not be mounted on the host.
+Do not create directories at the root of `/mnt/mounted_folders` from the Sync webui since they will not be mounted to the host.
 
 ### Miscellaneous
 
