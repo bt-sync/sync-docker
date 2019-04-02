@@ -1,0 +1,26 @@
+# Resilio Sync
+#
+# VERSION               0.1
+#
+# README README README
+# Original Project: https://github.com/bt-sync/sync-docker
+# This dockerfile has been modified from base to use with ARMHF
+
+FROM ubuntu
+MAINTAINER Resilio Inc. <support@resilio.com>
+LABEL com.resilio.version="2.6.3"
+
+ADD https://download-cdn.resilio.com/stable/linux-armhf/resilio-sync_armhf.tar.gz /tmp/sync.tgz
+RUN mv /tmp/sync.tgz /usr/bin/ && cd /usr/bin && tar -xvf ./sync.tgz
+
+COPY sync.conf.default /etc/
+COPY run_sync /usr/bin/
+COPY Dockerfile /
+
+EXPOSE 8888
+EXPOSE 55555
+
+VOLUME /mnt/sync
+
+ENTRYPOINT [ "run_sync" ]
+CMD ["--config", "/mnt/sync/sync.conf"]
