@@ -10,7 +10,8 @@ services:
     restart: always
     ports:
      - 127.0.0.1:9999:8888
-     - 55555:55555
+     - 55555:55555/tcp
+     - 55555:55555/udp     
     volumes:
      - sync_storage:/mnt/sync/storage     # Sync storage folder
      - ./sync.conf:/mnt/sync/sync.conf    # Configuration file
