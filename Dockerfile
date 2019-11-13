@@ -13,8 +13,12 @@ RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 COPY sync.conf.default /etc/
 COPY run_sync /usr/bin/
 
-EXPOSE 8888
-EXPOSE 55555
+EXPOSE 8888/tcp   # webui port
+EXPOSE 55555/tcp  # listening port
+EXPOSE 55555/udp  # listening port
+
+# More info about ports used by Sync you can find here:
+# https://help.resilio.com/hc/en-us/articles/204754759-What-ports-and-protocols-are-used-by-Sync-
 
 VOLUME /mnt/sync
 
