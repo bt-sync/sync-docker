@@ -14,7 +14,8 @@ mkdir -p $DATA_FOLDER
 
 docker run -d --name Sync \
            -p 127.0.0.1:$WEBUI_PORT:8888 \
-           -p 55555 \
+           -p 55555/tcp \
+           -p 55555/udp \
            -v $DATA_FOLDER:/mnt/sync \
            --restart on-failure \
            resilio/sync
@@ -40,7 +41,9 @@ Running Sync in docker container via docker-compose is described [here](https://
 ### Ports
 
 * `8888` - Webui port
-* `55555` - Listening port for Sync traffic (you can change it, but in this case change it in Sync [settings](https://help.resilio.com/hc/en-us/articles/204762669-Sync-Preferences) as well)
+* `55555` - Listening port (both TCP and UDP) for Sync traffic (you can change it, but in this case change it in Sync [settings](https://help.resilio.com/hc/en-us/articles/204762669-Sync-Preferences) as well)
+
+Find more info [here](https://help.resilio.com/hc/en-us/articles/204754759-What-ports-and-protocols-are-used-by-Sync-) about ports used by Sync.
 
 #### LAN access
 
@@ -49,7 +52,8 @@ If you do not want to limit the access to the webui, do not specify localhost ad
 ```
 docker run -d --name Sync \
            -p $WEBUI_PORT:8888 \
-           -p 55555 \
+           -p 55555/tcp \
+           -p 55555/udp \
            -v $DATA_FOLDER:/mnt/sync \
            --restart on-failure \
            resilio/sync
@@ -62,7 +66,8 @@ If you need to mount extra directories, mount them in `/mnt/mounted_folders`:
 ```
 docker run -d --name Sync \
            -p 127.0.0.1:$WEBUI_PORT:8888 \
-           -p 55555 \
+           -p 55555/tcp \
+           -p 55555/udp \
            -v $DATA_FOLDER:/mnt/sync \
            -v <OTHER_DIR>:/mnt/mounted_folders/<DIR_NAME> \
            -v <OTHER_DIR2>:/mnt/mounted_folders/<DIR_NAME2> \
