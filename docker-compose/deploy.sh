@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 ACTION=$1 # up, down
 export SYNC_DATA=$2  # path to dir to be whitelisted in sync.conf::webui::dir_whitelist and to be mounted in container
 
