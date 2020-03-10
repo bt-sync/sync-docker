@@ -8,14 +8,14 @@
 
 FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="2.6.3"
+LABEL com.resilio.version="2.6.4"
 
 ADD https://download-cdn.resilio.com/stable/linux-armhf/resilio-sync_armhf.tar.gz /tmp/sync.tgz
 RUN mv /tmp/sync.tgz /usr/bin/ && cd /usr/bin && tar -xvf ./sync.tgz
 
 COPY sync.conf.default /etc/
 COPY run_sync /usr/bin/
-COPY Dockerfile /
+COPY Dockerfile.pi /
 
 EXPOSE 8888
 EXPOSE 55555
