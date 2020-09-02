@@ -7,7 +7,7 @@ Sync uses peer-to-peer technology to provide fast, private file sharing for team
 ### Usage
 
 ```
-# path to folder on the host to be mounted to container as Sync [storage folder](https://help.resilio.com/hc/en-us/articles/206664690-Sync-Storage-folder)
+# path to folder on the host to be mounted to container as Sync storage folder
 DATA_FOLDER=/path/to/data/folder/on/the/host
 mkdir -p $DATA_FOLDER
 
@@ -29,7 +29,7 @@ docker run -d --name Sync \
 ```
 Note 1: we need to mount `/etc/localtime` from host OS to container to ensure container's time is synced with the host's time.
 
-Note 2: you can use our official Docker image `resilio/sync` hosted on https://hub.docker.com or build image manually:
+Note 2: you can use our official Docker image `resilio/sync` hosted on https://hub.docker.com/u/resilio or build image manually:
 ```
 git clone git@github.com:bt-sync/sync-docker.git
 cd sync-docker
@@ -60,9 +60,11 @@ Find more info [here](https://help.resilio.com/hc/en-us/articles/204754759-What-
 #### LAN access
 
 If you do not want to limit the access to the webui - do not specify `localhost` address in `-p` parameter, 
-in this case every person in your LAN will be able to access web UI via http://<your_ip_address>:<web_ui_port>:
+in this case every person in your LAN will be able to access web UI via `http://<your_ip_address>:<WEBUI_PORT>`:
 
 ```
+WEBUI_PORT=8888
+
 docker run -d --name Sync \
            -p $WEBUI_PORT:8888 \
            -p 55555/tcp \
@@ -96,7 +98,7 @@ docker run -d --name Sync \
            resilio/sync
 ```
 
-Note: do not create directories at the root of `/mnt/mounted_folders` from the Sync web UI since they will not be mounted to the host. You need to mount those first and then add them in Sync via web UI.
+Note: do not create directories at the root of `/mnt/mounted_folders` from the Sync web UI since they will not be mounted to the host. You need to mount those first as described above and then add them in Sync via web UI.
 
 ### Miscellaneous
 
