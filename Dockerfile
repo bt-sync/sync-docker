@@ -3,13 +3,22 @@
 # VERSION               0.1
 #
 
-FROM ubuntu
-MAINTAINER Resilio Inc. <support@resilio.com>
+ARG FROM_ARCH=amd64
+
+FROM alpine AS builder
+
+ARG VERSION=2.7.2
+ARG ARCH=x64
+ADD https://download-cdn.resilio.com/${VERSION}/linux-${ARCH}/resilio-sync_${ARCH}.tar.gz resilio-sync.tar.gz
+RUN tar zxvf resilio-sync.tar.gz
+
+
+FROM ${FROM_ARCH}/ubuntu
+
+LABEL maintainer="Resilio Inc. <support@resilio.com>"
 LABEL com.resilio.version="2.7.2"
 
-ADD https://download-cdn.resilio.com/2.7.2/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
-RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
-
+COPY --from=builder rslsync /usr/bin
 COPY sync.conf.default /etc/
 COPY run_sync /usr/bin/
 
@@ -20,7 +29,7 @@ EXPOSE 8888/tcp
 EXPOSE 55555/tcp
 
 # listening port
-EXPOSE 55555/udp  
+EXPOSE 55555/udp 
 
 # More info about ports used by Sync you can find here:
 # https://help.resilio.com/hc/en-us/articles/204754759-What-ports-and-protocols-are-used-by-Sync-
