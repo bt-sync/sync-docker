@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Custom build script to push images for all supported architectures.
+#
+# Example for IMAGE_NAME: resilio/sync:release-2.6.3
+# Images pushed:
+# - resilio/sync:release-2.6.3-amd64
+# - resilio/sync:release-2.6.3-arm32v7
+
+for arch in amd64 arm32v7
+do
+  echo "Pushing $IMAGE_NAME-$arch"
+  docker push $IMAGE_NAME-$arch
+done

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Pushing multi-arch manifest $IMAGE_NAME"
+
+# Use manifest-tool to create the manifest, given the experimental
+# "docker manifest" command isn't available yet on Docker Hub.
+curl -Lo manifest-tool https://github.com/estesp/manifest-tool/releases/download/v0.9.0/manifest-tool-linux-amd64
+chmod +x manifest-tool
+
+cat > manifest-generated.yaml << EOF
+image: $IMAGE_NAME
+manifests:
+  - image: $IMAGE_NAME-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: $IMAGE_NAME-arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+EOF
+
+./manifest-tool push from-spec manifest-generated.yaml
