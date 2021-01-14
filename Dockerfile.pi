@@ -8,7 +8,7 @@
 
 FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="2.6.4"
+LABEL com.resilio.version="2.7.2"
 
 ADD https://download-cdn.resilio.com/stable/linux-armhf/resilio-sync_armhf.tar.gz /tmp/sync.tgz
 RUN mv /tmp/sync.tgz /usr/bin/ && cd /usr/bin && tar -xvf ./sync.tgz
