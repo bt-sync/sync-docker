@@ -28,4 +28,4 @@ EXPOSE 55555/udp
 VOLUME /mnt/sync
 
 ENTRYPOINT ["run_sync"]
-CMD ["--config", "/mnt/sync/sync.conf"]
+CMD ["--config", "/mnt/sync/sync.conf", "--log", "/mnt/sync/sync.log"]
